@@ -3,3 +3,6 @@ pandas
 scikit-learn
 openpyxl
 matplotlib
+
+
+streamlit run app.py

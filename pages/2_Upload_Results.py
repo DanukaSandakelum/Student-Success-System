@@ -80,7 +80,7 @@ with st.container():
                 if clear_all_data():
                     st.success("All data in 'student_summary' has been deleted!")
                     st.session_state['confirm_delete'] = False
-                    st.rerun() # Page එක Refresh වෙයි
+                    st.rerun() 
                 else:
                     st.error("Failed to clear database.")
         

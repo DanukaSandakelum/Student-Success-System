@@ -70,5 +70,6 @@ for i, txt in enumerate(chart_data['GPA']):
 
 st.pyplot(fig)
 
+# --- 5. Detailed Table ---
 st.subheader("📋 Semester Breakdown")
 st.dataframe(chart_data.set_index('Semester').T, use_container_width=True)

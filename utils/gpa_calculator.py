@@ -6,7 +6,6 @@ SUBJECT_CONFIG = [
     {'keyword': 'FundamentalsofComputerProgramming', 'sem': '1.1', 'credits': 4},
     {'keyword': 'FundamentalsofWebTechnologies', 'sem': '1.1', 'credits': 2},
     {'keyword': 'EssentialofICT', 'sem': '1.1', 'credits': 4},
-    {'keyword': 'data', 'sem': '1.1', 'credits': 4},
     {'keyword': 'MathamaticsforTechnology', 'sem': '1.1', 'credits': 3},
     {'keyword': 'PrinciplesofManagement', 'sem': '1.1', 'credits': 2},
 
@@ -15,13 +14,13 @@ SUBJECT_CONFIG = [
     {'keyword': 'DataStructures', 'sem': '1.2', 'credits': 3},
     {'keyword': 'HumanComputerInteraction', 'sem': '1.2', 'credits': 3},
     {'keyword': 'StatisticsforTechnology', 'sem': '1.2', 'credits': 2},
+    {'keyword': 'MultimediaDesignandTechnologies', 'sem': '1.2', 'credits': 2},
     
 
     # --- Semester 2.1 ---
     {'keyword': 'AdvancedWebTechnologies', 'sem': '2.1', 'credits': 2},
     {'keyword': 'ComputerArchitecture', 'sem': '2.1', 'credits': 3},
-    {'keyword': 'InformationSecurity', 'sem': '2.1', 'credits': 2},
-    {'keyword': 'MultimediaDesignandTechnologies', 'sem': '2.1', 'credits': 2},    
+    {'keyword': 'InformationSecurity', 'sem': '2.1', 'credits': 2},    
     {'keyword': 'SocialandProfessionalIssues', 'sem': '2.1', 'credits': 2},
     {'keyword': 'SoftwareEngineering', 'sem': '2.1', 'credits': 3},
 ]
@@ -34,7 +33,7 @@ GRADE_POINTS = {
 def get_gpv(grade):
     if pd.isna(grade): return 0.0
     g = str(grade).strip().upper()
-    if 'ABSENT' in g or 'AB' == g or 'MC' in g: return 0.0
+    if 'ABSENT' in g or 'AB' == g or 'NE' in g: return 0.0
     if g in GRADE_POINTS: return GRADE_POINTS[g]
     for k in sorted(GRADE_POINTS.keys(), key=len, reverse=True):
         if g.startswith(k): return GRADE_POINTS[k]
@@ -64,7 +63,6 @@ def process_results(uploaded_files):
         raw_name = uploaded_file.name
         clean_name = clean_filename(raw_name)
         
-        # 1. විෂය හඳුනාගැනීම
         matched_subject = None
         for sub in SUBJECT_CONFIG:
             # Case-insensitive matching

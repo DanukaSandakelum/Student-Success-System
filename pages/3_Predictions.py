@@ -14,7 +14,7 @@ except:
 
 tab1, tab2 = st.tabs(["🔮 Predict Risk", "⚙️ Train AI Model"])
 
-# --- Tab 1: Predict (අනාවැකි) ---
+# --- Tab 1: Predict  ---
 with tab1:
     st.subheader("Predict Student Status")
     
@@ -70,7 +70,7 @@ with tab1:
                     else:
                         st.warning(result)
 
-# --- Tab 2: Train Model (පුහුණු කිරීම) ---
+# --- Tab 2: Train Model  ---
 with tab2:
     st.subheader("⚙️ Model Training")
     st.write("When you upload new data, re-train the model to make it smarter.")
